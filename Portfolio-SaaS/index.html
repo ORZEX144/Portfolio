@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-snippet:160, max-image-preview:large">
+    <meta name="theme-color" content="#09090B">
+    <meta name="color-scheme" content="dark">
+    <title>Flowly — L'outil que les équipes design attendaient pour gérer leurs projets</title>
+    <meta name="description" content="Marre de jongler entre Slack, Drive et Trello ? Flowly réunit vos fichiers, retours clients et deadlines au même endroit. Testez 14 jours, c'est gratuit.">
+    <link rel="canonical" href="https://flowly.io/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Flowly — Vos projets créatifs, enfin sous contrôle">
+    <meta property="og:description" content="Plus besoin de chercher le bon fichier ou de relancer par email. Flowly rassemble tout ce dont votre équipe a besoin pour livrer sereinement.">
+    <meta property="og:url" content="https://flowly.io/">
+    <meta property="og:site_name" content="Flowly">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:image" content="https://flowly.io/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Flowly - Gestion de projets créatifs pour équipes design">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Flowly — Vos projets créatifs, enfin sous contrôle">
+    <meta name="twitter:description" content="Plus de fichiers perdus ni de deadlines oubliées. Un seul endroit pour bosser ensemble.">
+    <meta name="twitter:image" content="https://flowly.io/og-image.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Flowly",
+        "applicationCategory": "ProjectManagement",
+        "operatingSystem": "Web",
+        "description": "Flowly rassemble fichiers, retours et deadlines dans un seul espace pensé pour les équipes créatives.",
+        "url": "https://flowly.io",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Free",
+                "price": "0",
+                "priceCurrency": "EUR",
+                "description": "Jusqu'à 3 membres, 5 projets actifs"
+            },
+            {
+                "@type": "Offer",
+                "name": "Pro",
+                "price": "19",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "19",
+                    "priceCurrency": "EUR",
+                    "billingDuration": "P1M",
+                    "unitText": "par membre"
+                },
+                "description": "Membres et projets illimités, 50 Go de stockage"
+            },
+            {
+                "@type": "Offer",
+                "name": "Team",
+                "price": "39",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "39",
+                    "priceCurrency": "EUR",
+                    "billingDuration": "P1M",
+                    "unitText": "par membre"
+                },
+                "description": "Stockage illimité, SSO, support prioritaire"
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "200",
+            "bestRating": "5"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #09090B;
+            --dark: #18181B;
+            --dark-violet: #1E1533;
+            --violet: #8B5CF6;
+            --violet-dim: rgba(139, 92, 246, 0.15);
+            --violet-glow: rgba(139, 92, 246, 0.4);
+            --cyan: #06B6D4;
+            --cyan-dim: rgba(6, 182, 212, 0.15);
+            --cyan-glow: rgba(6, 182, 212, 0.4);
+            --white: #F8FAFC;
+            --gray-100: #E2E8F0;
+            --gray-300: #94A3B8;
+            --gray-400: #64748B;
+            --gray-500: #475569;
+            --gray-700: #334155;
+            --gray-900: #0F172A;
+            --glass-bg: rgba(24, 24, 27, 0.6);
+            --glass-border: rgba(139, 92, 246, 0.12);
+            --glass-border-hover: rgba(139, 92, 246, 0.3);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-xs: 6px;
+            --font-display: 'General Sans', system-ui, -apple-system, sans-serif;
+            --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --duration: 0.3s;
+        }
+
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--black);
+            color: var(--gray-300);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        /* ========== DOT GRID BACKGROUND ========== */
+        .dot-grid {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image: radial-gradient(rgba(139, 92, 246, 0.08) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+        }
+
+        /* ========== GRADIENT MESH BLOBS ========== */
+        .mesh-gradient {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .mesh-1 { background: var(--violet); top: -200px; right: -100px; }
+        .mesh-2 { background: var(--cyan); bottom: 20%; left: -200px; opacity: 0.08; }
+        .mesh-3 { background: var(--violet); bottom: -100px; right: 20%; opacity: 0.06; width: 400px; height: 400px; }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        section { padding: 100px 0; position: relative; z-index: 1; }
+        .problem-section { padding: 120px 0 100px; }
+        .features-section { padding: 100px 0 120px; }
+        .steps-section { padding: 80px 0 100px; }
+
+        /* ========== TYPOGRAPHY ========== */
+        h1, h2, h3, h4 { font-family: var(--font-display); color: var(--white); line-height: 1.15; letter-spacing: -0.03em; text-wrap: balance; }
+        h1 { font-size: clamp(3.2rem, 7vw, 5.2rem); font-weight: 800; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; }
+        h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 600; }
+        p { max-width: 620px; }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--violet), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-label {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--violet);
+            margin-bottom: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-label::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background: var(--violet);
+            border-radius: 1px;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            color: var(--gray-400);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ========== GLASSMORPHISM CARD ========== */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .glass-card:hover {
+            border-color: var(--glass-border-hover);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 4px 24px rgba(0,0,0,0.3);
+        }
+
+        /* ========== BUTTONS ========== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease), background var(--duration) var(--ease), border-color var(--duration) var(--ease);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--violet), #7C3AED);
+            color: var(--white);
+            box-shadow: 0 0 24px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.45), inset 0 1px 0 rgba(255,255,255,0.15);
+        }
+        .btn-primary:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 0 16px rgba(139, 92, 246, 0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+        .btn-secondary {
+            background: rgba(139, 92, 246, 0.08);
+            color: var(--gray-100);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+        .btn-secondary:hover {
+            background: rgba(139, 92, 246, 0.14);
+            border-color: rgba(139, 92, 246, 0.35);
+            transform: translateY(-2px);
+        }
+        .btn-secondary:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            transition: background var(--duration) var(--ease), border-color var(--duration) var(--ease);
+        }
+        .navbar.scrolled {
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.08);
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+            z-index: 2;
+            position: relative;
+        }
+        .nav-logo svg { flex-shrink: 0; }
+        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--duration) var(--ease);
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-cta { margin-left: 16px; }
+        .nav-cta .btn { padding: 10px 22px; font-size: 0.85rem; }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            padding-bottom: 60px;
+            text-align: center;
+        }
+        .hero .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--violet);
+            background: var(--violet-dim);
+            border: 1px solid rgba(139, 92, 246, 0.18);
+            margin-bottom: 32px;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.08);
+            animation: fadeInDown 0.8s ease-out;
+        }
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--violet);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--violet-glow);
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        .hero-subtitle {
+            font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+            color: var(--gray-400);
+            max-width: 520px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-mock {
+            margin-top: 64px;
+            width: 100%;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        .hero-mock-inner {
+            border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px);
+            padding: 2px;
+            box-shadow: 0 0 60px rgba(139, 92, 246, 0.08), 0 25px 50px rgba(0,0,0,0.4);
+        }
+        .mock-toolbar {
+            display: flex;
+            align-items: center;
+            padding: 14px 18px;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .mock-dot:nth-child(1) { background: #EF4444; }
+        .mock-dot:nth-child(2) { background: #F59E0B; }
+        .mock-dot:nth-child(3) { background: #22C55E; }
+        .mock-url {
+            margin-left: 16px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .mock-content {
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            min-height: 320px;
+        }
+        .mock-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .mock-sidebar-item {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .mock-sidebar-item.active {
+            background: var(--violet-dim);
+            color: var(--violet);
+        }
+        .mock-sidebar-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.06);
+            flex-shrink: 0;
+        }
+        .mock-sidebar-item.active .mock-sidebar-icon { background: rgba(139, 92, 246, 0.25); }
+
+        .mock-main { display: flex; flex-direction: column; gap: 16px; }
+        .mock-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .mock-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--white);
+        }
+        .mock-btn {
+            padding: 5px 14px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            background: var(--violet);
+            color: white;
+            font-weight: 600;
+        }
+        .mock-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            flex: 1;
+        }
+        .mock-column {
+            background: rgba(255,255,255,0.02);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .mock-col-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        .mock-task {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 0.72rem;
+            color: var(--gray-300);
+        }
+        .mock-task-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+        .tag-violet { background: var(--violet-dim); color: var(--violet); }
+        .tag-cyan { background: var(--cyan-dim); color: var(--cyan); }
+        .tag-green { background: rgba(34,197,94,0.15); color: #22C55E; }
+
+        /* ========== LOGOS ========== */
+        .logos-section { padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .logos-label {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+        .logos-grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            opacity: 0.4;
+        }
+        .logos-grid svg { transition: opacity var(--duration) var(--ease); }
+        .logos-grid svg:hover { opacity: 0.8; }
+
+        /* ========== PROBLEM ========== */
+        .problem-section { text-align: center; }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 56px;
+        }
+        .problem-card {
+            padding: 36px 28px;
+            text-align: left;
+        }
+        .problem-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .problem-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+        .problem-card p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.6; }
+
+        /* ========== FEATURES ========== */
+        .features-section { text-align: center; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 56px;
+        }
+        .features-grid .feature-card:first-child {
+            grid-column: 1 / -1;
+        }
+        .feature-card {
+            padding: 32px 28px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+        .features-grid .feature-card:first-child {
+            flex-direction: row;
+            gap: 40px;
+            align-items: center;
+            padding: 40px 36px;
+        }
+        .features-grid .feature-card:first-child .feature-text-wrap { flex: 1; min-width: 0; }
+        .features-grid .feature-card:first-child .feature-mock { flex: 1; margin-top: 0; min-width: 280px; }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--violet-dim);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+        .feature-card p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.6; margin-bottom: 24px; }
+
+        .feature-mock {
+            margin-top: auto;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            min-height: 160px;
+        }
+        .mini-kanban { display: flex; gap: 8px; }
+        .mini-col { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+        .mini-col-header { font-size: 0.6rem; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+        .mini-task {
+            background: rgba(255,255,255,0.04);
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 0.65rem;
+            color: var(--gray-400);
+        }
+        .mini-task .bar {
+            height: 3px;
+            border-radius: 2px;
+            margin-top: 6px;
+        }
+
+        .comment-thread { display: flex; flex-direction: column; gap: 10px; }
+        .comment-bubble {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+        }
+        .comment-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .comment-body {
+            background: rgba(255,255,255,0.04);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.7rem;
+            color: var(--gray-400);
+            line-height: 1.5;
+        }
+        .comment-name { font-weight: 600; color: var(--gray-300); font-size: 0.65rem; margin-bottom: 2px; }
+
+        .timeline-mock { display: flex; flex-direction: column; gap: 12px; }
+        .timeline-bar-group { display: flex; flex-direction: column; gap: 4px; }
+        .timeline-label { font-size: 0.65rem; color: var(--gray-500); }
+        .timeline-bar-bg {
+            height: 8px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .timeline-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        /* ========== HOW IT WORKS ========== */
+        .steps-section { text-align: center; }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 56px;
+            position: relative;
+        }
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 16%;
+            right: 16%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--violet), var(--cyan));
+            opacity: 0.2;
+        }
+        .step-card { text-align: center; position: relative; }
+        .step-number {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--dark);
+            border: 2px solid var(--violet);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--violet);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 24px rgba(139, 92, 246, 0.15);
+        }
+        .step-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+        .step-card p { font-size: 0.9rem; color: var(--gray-400); max-width: 280px; margin: 0 auto; line-height: 1.6; }
+
+        /* ========== PRICING ========== */
+        .pricing-section { text-align: center; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr 1fr;
+            gap: 24px;
+            margin-top: 56px;
+            align-items: start;
+        }
+        .pricing-card {
+            padding: 40px 32px;
+            text-align: left;
+            position: relative;
+        }
+        .pricing-card.popular {
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 8px 40px rgba(139, 92, 246, 0.08), 0 2px 8px rgba(0,0,0,0.3);
+            transform: scale(1.02);
+        }
+        .pricing-popular-tag {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 16px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--violet), var(--cyan));
+            color: var(--white);
+        }
+        .pricing-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .pricing-desc {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        .pricing-price {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 2.8rem;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .pricing-price span { font-size: 1rem; font-weight: 500; color: var(--gray-500); }
+        .pricing-period { font-size: 0.8rem; color: var(--gray-500); margin-bottom: 32px; }
+        .pricing-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: var(--gray-300);
+        }
+        .pricing-features li svg { flex-shrink: 0; color: var(--violet); }
+        .pricing-card .btn { width: 100%; justify-content: center; }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials-section { text-align: center; }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 56px;
+        }
+        .testimonial-card {
+            padding: 32px 28px;
+            text-align: left;
+        }
+        .testimonial-stars {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 16px;
+        }
+        .testimonial-text {
+            font-size: 0.92rem;
+            color: var(--gray-300);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--white);
+        }
+        .testimonial-name { font-weight: 600; font-size: 0.88rem; color: var(--white); }
+        .testimonial-role { font-size: 0.78rem; color: var(--gray-500); }
+
+        /* ========== FINAL CTA ========== */
+        .final-cta {
+            text-align: center;
+            padding: 120px 0;
+        }
+        .final-cta-inner {
+            padding: 72px 48px;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .final-cta-inner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.12), transparent 70%);
+            pointer-events: none;
+        }
+        .final-cta h2 { margin-bottom: 16px; position: relative; }
+        .final-cta p {
+            color: var(--gray-400);
+            margin: 0 auto 36px;
+            max-width: 480px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            position: relative;
+        }
+        .final-cta .hero-ctas { position: relative; }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: 64px 0 32px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            z-index: 1;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+        .footer-brand p { font-size: 0.85rem; color: var(--gray-500); margin-top: 12px; max-width: 280px; line-height: 1.6; }
+        .footer-col h4 {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 20px;
+        }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .footer-col a {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color var(--duration) var(--ease);
+        }
+        .footer-col a:hover { color: var(--white); }
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+
+        /* ========== SCROLL REVEAL ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== REDUCED MOTION ========== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1; transform: none; }
+        }
+
+        /* ========== FOCUS STATES ========== */
+        a:focus-visible, button:focus-visible, .btn:focus-visible {
+            outline: 2px solid var(--violet);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+            .pricing-card.popular { transform: none; }
+            .features-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+            .features-grid .feature-card:first-child { grid-column: auto; flex-direction: column; padding: 32px 28px; }
+            .features-grid .feature-card:first-child .feature-mock { min-width: unset; }
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .mobile-toggle { display: block; }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 72px 0; }
+
+            .mobile-menu {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(9, 9, 11, 0.97);
+                backdrop-filter: blur(20px);
+                z-index: 99;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 32px;
+            }
+            .mobile-menu.open { display: flex; }
+            .mobile-menu a {
+                color: var(--white);
+                text-decoration: none;
+                font-family: var(--font-display);
+                font-size: 1.4rem;
+                font-weight: 600;
+            }
+            .mobile-close {
+                position: absolute;
+                top: 20px;
+                right: 24px;
+                background: none;
+                border: none;
+                color: var(--white);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .problem-grid,
+            .steps-grid,
+            .testimonials-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+            .steps-grid::before { display: none; }
+
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+            .mock-content { grid-template-columns: 1fr; }
+            .mock-sidebar { display: none; }
+            .mock-columns { grid-template-columns: 1fr 1fr; }
+
+            .hero-ctas { flex-direction: column; align-items: center; }
+            .hero-ctas .btn { width: 100%; max-width: 300px; justify-content: center; }
+
+            .logos-grid { gap: 32px; }
+            .logos-grid svg { transform: scale(0.85); }
+
+            .final-cta-inner { padding: 48px 24px; }
+
+            .sticky-mobile-cta {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 90;
+                padding: 12px 16px;
+                background: rgba(9, 9, 11, 0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(139, 92, 246, 0.15);
+                transform: translateY(100%);
+                transition: transform 0.3s ease;
+            }
+            .sticky-mobile-cta.visible { transform: translateY(0); }
+            .sticky-mobile-cta .btn { width: 100%; justify-content: center; padding: 14px 24px; }
+        }
+
+        @media (min-width: 769px) {
+            .sticky-mobile-cta { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .mock-columns { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background effects -->
+<div class="dot-grid"></div>
+<div class="mesh-gradient mesh-1"></div>
+<div class="mesh-gradient mesh-2"></div>
+<div class="mesh-gradient mesh-3"></div>
+
+<!-- ========== NAVBAR ========== -->
+<header><nav class="navbar" id="navbar" aria-label="Navigation principale">
+    <div class="container">
+        <a href="#" class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <rect width="28" height="28" rx="8" fill="url(#logo-grad)"/>
+                <path d="M8 10h6M8 14h10M8 18h4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                <defs><linearGradient id="logo-grad" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#8B5CF6"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs>
+            </svg>
+            Flowly
+        </a>
+        <ul class="nav-links">
+            <li><a href="#features">Fonctionnalités</a></li>
+            <li><a href="#pricing">Tarifs</a></li>
+            <li><a href="#testimonials">Témoignages</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="#cta" class="btn btn-primary">Essayer gratuitement</a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Ouvrir le menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+    </div>
+</nav></header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose" aria-label="Fermer le menu">&times;</button>
+    <a href="#features" onclick="closeMobile()">Fonctionnalités</a>
+    <a href="#pricing" onclick="closeMobile()">Tarifs</a>
+    <a href="#testimonials" onclick="closeMobile()">Témoignages</a>
+    <a href="#cta" class="btn btn-primary" onclick="closeMobile()">Essayer gratuitement</a>
+</div>
+
+<main>
+<!-- ========== HERO ========== -->
+<section class="hero" aria-label="Présentation de Flowly">
+    <div class="container">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            Déjà adopté par plus de 200 équipes
+        </div>
+        <h1>Vos projets créatifs,<br><span class="gradient-text">sans le chaos.</span></h1>
+        <p class="hero-subtitle">Fichiers, retours clients, deadlines — enfin réunis au même endroit.</p>
+        <div class="hero-ctas">
+            <a href="#cta" class="btn btn-primary">
+                Tester pendant 14 jours
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#how" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polygon points="6,4 12,8 6,12" fill="currentColor"/></svg>
+                Voir la démo
+            </a>
+        </div>
+        <p class="hero-trust-note" style="font-size:0.82rem; color:var(--gray-500); margin-top:16px; animation: fadeInUp 0.8s ease-out 0.4s both;">Pas besoin de carte bancaire. Prêt en 2 minutes.</p>
+
+        <!-- Product Mock -->
+        <div class="hero-mock">
+            <div class="hero-mock-inner">
+                <div class="mock-toolbar">
+                    <div class="mock-dot"></div>
+                    <div class="mock-dot"></div>
+                    <div class="mock-dot"></div>
+                    <div class="mock-url">app.flowly.io/projects</div>
+                </div>
+                <div class="mock-content">
+                    <div class="mock-sidebar">
+                        <div class="mock-sidebar-item active"><div class="mock-sidebar-icon"></div>Projets</div>
+                        <div class="mock-sidebar-item"><div class="mock-sidebar-icon"></div>Tâches</div>
+                        <div class="mock-sidebar-item"><div class="mock-sidebar-icon"></div>Fichiers</div>
+                        <div class="mock-sidebar-item"><div class="mock-sidebar-icon"></div>Feedbacks</div>
+                        <div class="mock-sidebar-item"><div class="mock-sidebar-icon"></div>Planning</div>
+                        <div class="mock-sidebar-item"><div class="mock-sidebar-icon"></div>Équipe</div>
+                    </div>
+                    <div class="mock-main">
+                        <div class="mock-header-row">
+                            <div class="mock-title">Campagne Q2 — Rebranding</div>
+                            <div class="mock-btn">+ Nouvelle tâche</div>
+                        </div>
+                        <div class="mock-columns">
+                            <div class="mock-column">
+                                <div class="mock-col-title">À faire</div>
+                                <div class="mock-task">Créer les maquettes mobile<span class="mock-task-tag tag-violet">Design</span></div>
+                                <div class="mock-task">Rédiger les textes CTA<span class="mock-task-tag tag-cyan">Copy</span></div>
+                            </div>
+                            <div class="mock-column">
+                                <div class="mock-col-title">En cours</div>
+                                <div class="mock-task">Refonte logo principal<span class="mock-task-tag tag-violet">Design</span></div>
+                                <div class="mock-task">Shooting produit<span class="mock-task-tag tag-green">Photo</span></div>
+                            </div>
+                            <div class="mock-column">
+                                <div class="mock-col-title">Terminé</div>
+                                <div class="mock-task">Brief créatif validé<span class="mock-task-tag tag-green">Brief</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== LOGOS ========== -->
+<section class="logos-section">
+    <div class="container">
+        <p class="logos-label">Ils gèrent leurs projets avec Flowly</p>
+        <div class="logos-grid">
+            <svg width="100" height="28" viewBox="0 0 100 28"><text x="0" y="20" font-family="var(--font-display)" font-weight="700" font-size="16" fill="#F8FAFC">PixelCraft</text></svg>
+            <svg width="90" height="28" viewBox="0 0 90 28"><text x="0" y="20" font-family="var(--font-display)" font-weight="700" font-size="16" fill="#F8FAFC">Novastudio</text></svg>
+            <svg width="80" height="28" viewBox="0 0 80 28"><text x="0" y="20" font-family="var(--font-display)" font-weight="700" font-size="16" fill="#F8FAFC">Lumeo</text></svg>
+            <svg width="85" height="28" viewBox="0 0 85 28"><text x="0" y="20" font-family="var(--font-display)" font-weight="700" font-size="16" fill="#F8FAFC">Kreativ.io</text></svg>
+            <svg width="80" height="28" viewBox="0 0 80 28"><text x="0" y="20" font-family="var(--font-display)" font-weight="700" font-size="16" fill="#F8FAFC">Helix Lab</text></svg>
+        </div>
+    </div>
+</section>
+
+<!-- ========== PROBLEM ========== -->
+<section class="problem-section" id="problem">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Le problème</span>
+            <h2>Le problème, c'est<br>pas vos équipes.</h2>
+            <p class="section-subtitle" style="margin-top:16px;">C'est que vos fichiers vivent sur Drive, les retours sur Slack, les tâches sur Trello et les validations par email. Chaque semaine, vous reconstruisez le puzzle à la main.</p>
+        </div>
+        <div class="problem-grid">
+            <div class="glass-card problem-card reveal">
+                <div class="problem-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M4 4h6v6H4zM12 4h6v6h-6zM4 12h6v6H4z" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12h6v6h-6z" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 3"/></svg>
+                </div>
+                <h3>Les fichiers perdus</h3>
+                <p>"T'as le lien de la V3 ?" — vous l'entendez 5 fois par jour. Parce que vos fichiers vivent dans 4 endroits différents et personne ne sait lequel est à jour.</p>
+            </div>
+            <div class="glass-card problem-card reveal">
+                <div class="problem-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M3 17l4-4 3 3 4-4 5 5" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="6" r="3" stroke="#EF4444" stroke-width="1.5"/><line x1="15" y1="4" x2="19" y2="8" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Les retours éparpillés</h3>
+                <p>Le client répond par email, la DA annote sur Figma, le PM commente dans Slack. Et vous, vous essayez de comprendre ce qui est validé ou pas.</p>
+            </div>
+            <div class="glass-card problem-card reveal">
+                <div class="problem-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="#EF4444" stroke-width="1.5"/><path d="M11 7v5l3 3" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3>Les deadlines fantômes</h3>
+                <p>Sans vision d'ensemble, les retards s'empilent en silence. Le lancement prévu mardi ? On est jeudi et c'est toujours pas en ligne.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FEATURES ========== -->
+<section class="features-section" id="features">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Fonctionnalités</span>
+            <h2>Un seul outil.<br>Zéro dispersion.</h2>
+            <p class="section-subtitle" style="margin-top:16px;">Flowly remplace la dizaine d'onglets ouverts par un seul espace. Designers, marketeurs et clients bossent enfin ensemble sans se marcher dessus.</p>
+        </div>
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="glass-card feature-card reveal">
+                <div class="feature-text-wrap">
+                    <div class="feature-icon">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="3" y="3" width="16" height="16" rx="3" stroke="#8B5CF6" stroke-width="1.5"/><path d="M3 9h16M9 9v10" stroke="#8B5CF6" stroke-width="1.5"/></svg>
+                    </div>
+                    <h3>Kanban visuel</h3>
+                    <p>Chaque tâche a son statut, son responsable, sa deadline. Un coup d'oeil suffit pour savoir où en est le projet.</p>
+                </div>
+                <div class="feature-mock">
+                    <div class="mini-kanban">
+                        <div class="mini-col">
+                            <div class="mini-col-header">À faire</div>
+                            <div class="mini-task">Maquette v2<div class="bar" style="background: var(--violet); width: 60%;"></div></div>
+                            <div class="mini-task">Icônes app<div class="bar" style="background: var(--cyan); width: 40%;"></div></div>
+                        </div>
+                        <div class="mini-col">
+                            <div class="mini-col-header">En cours</div>
+                            <div class="mini-task">Hero banner<div class="bar" style="background: var(--violet); width: 80%;"></div></div>
+                        </div>
+                        <div class="mini-col">
+                            <div class="mini-col-header">Done</div>
+                            <div class="mini-task">Logo final<div class="bar" style="background: #22C55E; width: 100%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="glass-card feature-card reveal">
+                <div class="feature-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M4 16l3-3 2 2 4-4 5 5" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 5h16M3 5v12a2 2 0 002 2h12a2 2 0 002-2V5" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Retours directement sur les visuels</h3>
+                <p>Vos clients annotent les maquettes, votre équipe répond dessus. Fini le "cf. pièce jointe" dans un email perdu.</p>
+                <div class="feature-mock">
+                    <div class="comment-thread">
+                        <div class="comment-bubble">
+                            <div class="comment-avatar" style="background: linear-gradient(135deg, var(--violet), #7C3AED);"></div>
+                            <div>
+                                <div class="comment-name">Sarah M.</div>
+                                <div class="comment-body">Le contraste du CTA est trop faible sur mobile. On peut passer en blanc ?</div>
+                            </div>
+                        </div>
+                        <div class="comment-bubble">
+                            <div class="comment-avatar" style="background: linear-gradient(135deg, var(--cyan), #0891B2);"></div>
+                            <div>
+                                <div class="comment-name">Lucas D.</div>
+                                <div class="comment-body">Corrigé et poussé en v3 !</div>
+                            </div>
+                        </div>
+                        <div class="comment-bubble">
+                            <div class="comment-avatar" style="background: linear-gradient(135deg, #22C55E, #16A34A);"></div>
+                            <div>
+                                <div class="comment-name">Sarah M.</div>
+                                <div class="comment-body" style="color: #22C55E; font-weight: 500;">Validé ✓</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="glass-card feature-card reveal">
+                <div class="feature-icon">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="3" y="5" width="16" height="12" rx="2" stroke="#8B5CF6" stroke-width="1.5"/><path d="M3 9h16" stroke="#8B5CF6" stroke-width="1.5"/><path d="M7 12h3M7 15h5" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <h3>Des deadlines qu'on tient vraiment</h3>
+                <p>Une barre de progression par projet. Les retards, vous les voyez venir deux semaines avant -- pas deux jours.</p>
+                <div class="feature-mock">
+                    <div class="timeline-mock">
+                        <div class="timeline-bar-group">
+                            <div class="timeline-label">Rebranding Q2</div>
+                            <div class="timeline-bar-bg"><div class="timeline-bar-fill" style="width: 85%; background: linear-gradient(90deg, var(--violet), var(--cyan));"></div></div>
+                        </div>
+                        <div class="timeline-bar-group">
+                            <div class="timeline-label">Campagne été</div>
+                            <div class="timeline-bar-bg"><div class="timeline-bar-fill" style="width: 45%; background: linear-gradient(90deg, var(--violet), #A78BFA);"></div></div>
+                        </div>
+                        <div class="timeline-bar-group">
+                            <div class="timeline-label">App mobile v2</div>
+                            <div class="timeline-bar-bg"><div class="timeline-bar-fill" style="width: 20%; background: linear-gradient(90deg, var(--cyan), #22D3EE);"></div></div>
+                        </div>
+                        <div class="timeline-bar-group">
+                            <div class="timeline-label">Social media kit</div>
+                            <div class="timeline-bar-bg"><div class="timeline-bar-fill" style="width: 100%; background: linear-gradient(90deg, #22C55E, #4ADE80);"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<section class="steps-section" id="how">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Comment ça marche</span>
+            <h2>Prêt en 3 minutes. Vraiment.</h2>
+            <p class="section-subtitle" style="margin-top:16px;">Pas de formation, pas de migration prise de tête. Vous branchez vos outils et c'est parti.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card reveal">
+                <div class="step-number">1</div>
+                <h3>Créez votre espace</h3>
+                <p>Inscription gratuite en 30 secondes. Invitez votre équipe par email et créez votre premier projet.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-number">2</div>
+                <h3>Connectez vos outils</h3>
+                <p>Figma, Google Drive, Dropbox : vos fichiers se synchronisent. Pas de migration manuelle.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-number">3</div>
+                <h3>Livrez sans stress</h3>
+                <p>Timeline en temps réel, feedbacks centralisés, deadlines respectées. Votre prochain lancement sera à l'heure.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="testimonials-section" id="testimonials">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Témoignages</span>
+            <h2>+200 équipes livrent<br>à temps avec Flowly.</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="glass-card testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                </div>
+                <p class="testimonial-text">"On a remplacé Notion, Trello et 3 channels Slack par Flowly. Nos designers livrent 30% plus vite depuis le switch."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--violet), #7C3AED);">CM</div>
+                    <div>
+                        <div class="testimonial-name">Claire Moreau</div>
+                        <div class="testimonial-role">Creative Director — PixelCraft</div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                </div>
+                <p class="testimonial-text">"Le feedback contextuel a changé nos reviews. Fini les allers-retours par email — tout est au même endroit, annoté directement sur les visuels."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, var(--cyan), #0891B2);">TB</div>
+                    <div>
+                        <div class="testimonial-name">Thomas Blanc</div>
+                        <div class="testimonial-role">Product Manager — Novalab</div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="#F59E0B" aria-hidden="true"><polygon points="8,1 10,6 15,6.5 11.5,10 12.5,15 8,12.5 3.5,15 4.5,10 1,6.5 6,6"/></svg>
+                </div>
+                <p class="testimonial-text">"Je gère 6 clients en parallèle. Avant Flowly, je ratais au moins une deadline par mois. Depuis 4 mois, zéro retard."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #F59E0B, #D97706);">JR</div>
+                    <div>
+                        <div class="testimonial-name">Julie Renard</div>
+                        <div class="testimonial-role">Directrice Artistique — Freelance</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== PRICING ========== -->
+<section class="pricing-section" id="pricing">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Tarifs</span>
+            <h2>Simple, transparent,<br>sans surprise.</h2>
+            <p class="section-subtitle" style="margin-top:16px;">Commencez gratuitement. Passez au Pro quand votre équipe grandit.</p>
+        </div>
+        <div class="pricing-grid">
+            <!-- Free -->
+            <div class="glass-card pricing-card reveal">
+                <div class="pricing-name">Free</div>
+                <div class="pricing-desc">Idéal pour tester Flowly sur un projet avec 2-3 collaborateurs.</div>
+                <div class="pricing-price">0€</div>
+                <div class="pricing-period">Gratuit pour toujours</div>
+                <ul class="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Jusqu'à 3 membres</li>
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>5 projets actifs</li>
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>1 Go de stockage</li>
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Kanban & feedbacks</li>
+                </ul>
+                <a href="#cta" class="btn btn-secondary">Commencer gratuitement</a>
+            </div>
+            <!-- Pro -->
+            <div class="glass-card pricing-card popular reveal">
+                <div class="pricing-popular-tag">Le plus populaire</div>
+                <div class="pricing-name">Pro</div>
+                <div class="pricing-desc">Pour les équipes qui gèrent plusieurs projets en parallèle.</div>
+                <div class="pricing-price">19€ <span>/ mois</span></div>
+                <div class="pricing-period">par membre, facturé annuellement</div>
+                <ul class="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Membres illimités</li>
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Projets illimités</li>
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>50 Go de stockage</li>
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Timeline & deadlines</li>
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Intégrations Figma & Drive</li>
+                </ul>
+                <a href="#cta" class="btn btn-primary">Essayer 14 jours gratuits</a>
+            </div>
+            <!-- Team -->
+            <div class="glass-card pricing-card reveal">
+                <div class="pricing-name">Team</div>
+                <div class="pricing-desc">Pour les agences avec 10+ membres et des besoins de sécurité avancés.</div>
+                <div class="pricing-price">39€ <span>/ mois</span></div>
+                <div class="pricing-period">par membre, facturé annuellement</div>
+                <ul class="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tout le plan Pro</li>
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Stockage illimité</li>
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Permissions avancées</li>
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Support prioritaire</li>
+                    <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>SSO & audit logs</li>
+                </ul>
+                <a href="#cta" class="btn btn-secondary">Contacter l'équipe</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FINAL CTA ========== -->
+<section class="final-cta" id="cta">
+    <div class="container">
+        <div class="glass-card final-cta-inner reveal">
+            <h2>Votre prochain lancement,<br><span class="gradient-text">livré à temps.</span></h2>
+            <p>+200 équipes design et marketing utilisent déjà Flowly. Essai gratuit 14 jours, sans carte bancaire.</p>
+            <div class="hero-ctas">
+                <a href="#" class="btn btn-primary">
+                    Commencer votre essai gratuit
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#" class="btn btn-secondary">Voir la démo en 2 min</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Mobile Sticky CTA -->
+<div class="sticky-mobile-cta" id="stickyMobileCta" aria-label="Action rapide">
+    <a href="#cta" class="btn btn-primary">Essayer 14 jours gratuits</a>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                        <rect width="28" height="28" rx="8" fill="url(#logo-grad2)"/>
+                        <path d="M8 10h6M8 14h10M8 18h4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                        <defs><linearGradient id="logo-grad2" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#8B5CF6"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs>
+                    </svg>
+                    Flowly
+                </a>
+                <p>L'espace de travail créatif pour les équipes qui veulent livrer sans chaos.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Produit</h4>
+                <ul>
+                    <li><a href="#features">Fonctionnalités</a></li>
+                    <li><a href="#pricing">Tarifs</a></li>
+                    <li><a href="#">Intégrations</a></li>
+                    <li><a href="#">Changelog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ressources</h4>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Centre d'aide</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Entreprise</h4>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Carrières</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Flowly. Tous droits réservés.</span>
+            <span>Conçu avec soin pour les créatifs.</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile menu
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+
+    mobileToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    function closeMobile() { mobileMenu.classList.remove('open'); }
+
+    // Mobile sticky CTA
+    const stickyCta = document.getElementById('stickyMobileCta');
+    if (stickyCta) {
+        window.addEventListener('scroll', () => {
+            stickyCta.classList.toggle('visible', window.scrollY > 600);
+        });
+    }
+
+    // Scroll reveal with stagger
+    const reveals = document.querySelectorAll('.reveal');
+    let revealIndex = 0;
+    reveals.forEach(el => el.dataset.revealIndex = revealIndex++);
+    const observer = new IntersectionObserver((entries) => {
+        let delay = 0;
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), delay);
+                delay += 80;
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

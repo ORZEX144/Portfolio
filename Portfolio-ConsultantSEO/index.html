@@ -1,0 +1,2372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0D0D0D">
+    <title>Thomas Lefèvre — Consultant SEO à Paris | +312% de trafic organique en moyenne</title>
+    <meta name="description" content="Consultant SEO basé à Paris. J'aide les boîtes à remonter sur Google -- SEO technique, contenu qui performe, liens propres. +312% de trafic organique en moyenne, 87 projets livrés.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://thomas-lefevre-seo.fr/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Thomas Lefèvre — Consultant SEO | +312% de trafic organique en moyenne">
+    <meta property="og:description" content="J'aide les entreprises à grimper sur Google. SEO technique, contenu qui ranke, liens propres. +312% de trafic organique en moyenne sur 87 projets.">
+    <meta property="og:url" content="https://thomas-lefevre-seo.fr/">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Thomas Lefèvre — Consultant SEO">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Thomas Lefèvre — Consultant SEO">
+    <meta name="twitter:description" content="SEO technique, contenu qui ranke, liens solides. +312% de trafic organique en moyenne sur 87 projets.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Thomas Lefèvre — Consultant SEO",
+        "description": "Consultant SEO à Paris. J'aide les entreprises à se positionner durablement sur Google -- audit technique, stratégie de contenu et netlinking propre.",
+        "url": "https://thomas-lefevre-seo.fr/",
+        "telephone": "+33-1-00-00-00-00",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Paris",
+            "addressCountry": "FR"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Thomas Lefèvre",
+            "jobTitle": "Consultant SEO"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "France"
+        },
+        "serviceType": ["Audit SEO", "Accompagnement SEO mensuel", "Formation SEO"],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "87"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & VARIABLES ========== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #0D0D0D;
+            --white: #FFFFFF;
+            --green: #00C853;
+            --green-muted: #00b84a;
+            --green-dim: rgba(0, 200, 83, 0.12);
+            --green-glow: rgba(0, 200, 83, 0.3);
+            --grey: #2D2D2D;
+            --grey-light: #1A1A1A;
+            --grey-border: #333333;
+            --green-dark: #004D25;
+            --text-secondary: #999999;
+            --text-tertiary: #666666;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-body: 'Inter', sans-serif;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            color-scheme: dark;
+        }
+
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ========== GRID BACKGROUND ========== */
+        .grid-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.55;
+        }
+
+        /* Lueurs ambiantes */
+        .glow {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(120px);
+        }
+        .glow-1 {
+            width: 500px; height: 500px;
+            top: -100px; right: -100px;
+            background: rgba(0, 200, 83, 0.08);
+        }
+        .glow-2 {
+            width: 400px; height: 400px;
+            bottom: 20%; left: -80px;
+            background: rgba(0, 200, 83, 0.06);
+        }
+        .glow-3 {
+            width: 350px; height: 350px;
+            top: 50%; right: 10%;
+            background: rgba(0, 77, 37, 0.12);
+        }
+
+        /* ========== FOCUS & ACCESSIBILITY ========== */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        [id] {
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            text-wrap: balance;
+        }
+
+        button, a {
+            touch-action: manipulation;
+        }
+
+        /* ========== UTILITY ========== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--green);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: all 0.6s var(--ease-out-expo);
+        }
+
+        .section-label.visible { opacity: 1; transform: translateY(0); }
+
+        .section-label::before {
+            content: '';
+            width: 8px; height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--green-glow); }
+            50% { opacity: 0.7; box-shadow: 0 0 0 6px transparent; }
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 54ch;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ========== NAV ========== */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(0px);
+        }
+
+        nav.scrolled {
+            background: rgba(13, 13, 13, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--grey-border);
+        }
+
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo .logo-dot {
+            width: 8px; height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+        }
+
+        .nav-links a {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-links a:hover { color: var(--white); }
+
+        .nav-cta {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--black) !important;
+            background: var(--green);
+            padding: 8px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-cta:hover {
+            background: var(--white);
+            color: var(--black) !important;
+            transform: translateY(-1px);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--green-dim) 0%, transparent 70%);
+            pointer-events: none;
+            animation: hero-glow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes hero-glow {
+            0% { opacity: 0.3; transform: translate(0, 0); }
+            100% { opacity: 0.6; transform: translate(-40px, 30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        @media (min-width: 968px) {
+            .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 64px; }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--green);
+            background: var(--green-dim);
+            border: 1px solid rgba(0, 200, 83, 0.2);
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.2s forwards;
+        }
+
+        .hero-badge .badge-dot {
+            width: 6px; height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.35s forwards;
+        }
+
+        .hero h1 .highlight {
+            color: var(--green);
+            position: relative;
+        }
+
+        .hero-text {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 480px;
+            margin-bottom: 36px;
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.5s forwards;
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.65s forwards;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--black);
+            background: var(--green);
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+            letter-spacing: 0.02em;
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0, 200, 83, 0.12);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: none;
+            transition-duration: 0.1s;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--white);
+            background: transparent;
+            border: 1px solid var(--grey-border);
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-out-expo);
+            letter-spacing: 0.02em;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--green);
+            color: var(--green);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0) scale(0.98);
+            transition-duration: 0.1s;
+        }
+
+        /* Hero metric card */
+        .hero-metric-card {
+            background: var(--grey-light);
+            border: 1px solid var(--grey-border);
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.5s forwards;
+        }
+
+        .hero-metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--green), transparent);
+        }
+
+        .metric-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .metric-header-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+
+        .metric-live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--green);
+            background: var(--green-dim);
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+
+        .metric-live-badge::before {
+            content: '';
+            width: 5px; height: 5px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse-dot 1.5s ease-in-out infinite;
+        }
+
+        .hero-big-number {
+            font-family: var(--font-mono);
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            font-weight: 700;
+            color: var(--green);
+            line-height: 1;
+            margin-bottom: 8px;
+            letter-spacing: -0.03em;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .hero-big-label {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+        }
+
+        .mini-chart {
+            width: 100%;
+            height: 80px;
+            margin-bottom: 24px;
+        }
+
+        .hero-mini-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            border-top: 1px solid var(--grey-border);
+            padding-top: 20px;
+        }
+
+        .mini-stat {
+            text-align: center;
+        }
+
+        .mini-stat-value {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            display: block;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .mini-stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== PROBLEM SECTION ========== */
+        .problem {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .problem::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--grey-border), transparent);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .problem-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .problem-grid .problem-card:last-child {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .problem-card {
+            background: var(--grey-light);
+            border: 1px solid var(--grey-border);
+            border-radius: 12px;
+            padding: 28px;
+            position: relative;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .problem-card:hover {
+            border-color: rgba(0, 200, 83, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .problem-card-icon {
+            width: 44px; height: 44px;
+            background: var(--green-dim);
+            border: 1px solid rgba(0, 200, 83, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .problem-card-icon svg {
+            width: 22px; height: 22px;
+            stroke: var(--green);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .problem-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .problem-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .problem-stat {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: #ff4d4d;
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid rgba(255, 77, 77, 0.15);
+            padding: 4px 10px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-top: 14px;
+        }
+
+        /* ========== SOLUTION ========== */
+        .solution {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .solution::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--grey-border), transparent);
+        }
+
+        .solution-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            margin-top: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .solution-layout { grid-template-columns: 1fr 1fr; gap: 64px; }
+        }
+
+        .solution-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .solution-step {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            background: var(--grey-light);
+            border: 1px solid var(--grey-border);
+            border-radius: 12px;
+            transition: all 0.4s var(--ease-out-expo);
+            cursor: default;
+        }
+
+        .solution-step:hover {
+            border-color: var(--green);
+            background: rgba(0, 200, 83, 0.03);
+        }
+
+        .step-number {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--green);
+            background: var(--green-dim);
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        .step-content p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .solution-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .radar-chart-container {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1;
+            position: relative;
+        }
+
+        /* ========== RESULTS ========== */
+        .results {
+            padding: 100px 0;
+            position: relative;
+            background: var(--grey-light);
+        }
+
+        .results::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--green), transparent);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .results-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .result-card {
+            background: var(--black);
+            border: 1px solid var(--grey-border);
+            border-radius: 14px;
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .result-card:hover {
+            border-color: rgba(0, 200, 83, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .result-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .result-client {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .result-avatar {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .result-client-info h4 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .result-client-info span {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .result-duration {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-tertiary);
+            background: var(--grey);
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+
+        .result-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .result-metric {
+            text-align: center;
+            padding: 14px 8px;
+            background: var(--grey);
+            border-radius: 8px;
+        }
+
+        .result-metric-value {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--green);
+            display: block;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .result-metric-label {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+            display: block;
+        }
+
+        .result-bar-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            height: 50px;
+            margin-top: 6px;
+        }
+
+        .result-bar {
+            flex: 1;
+            border-radius: 3px 3px 0 0;
+            transition: height 1s var(--ease-out-expo);
+        }
+
+        .result-bar.before { background: var(--grey-border); }
+        .result-bar.after { background: var(--green); }
+
+        .result-bar-legend {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .result-bar-legend span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .result-bar-legend span::before {
+            content: '';
+            width: 8px; height: 8px;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .result-bar-legend span.legend-before::before { background: var(--grey-border); }
+        .result-bar-legend span.legend-after::before { background: var(--green); }
+
+        /* ========== SERVICES ========== */
+        .services {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--grey-border), transparent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr 1.2fr 1fr;
+            }
+        }
+
+        .service-card {
+            background: var(--grey-light);
+            border: 1px solid var(--grey-border);
+            border-radius: 14px;
+            padding: 32px 28px;
+            position: relative;
+            transition: all 0.4s var(--ease-out-expo);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            border-color: var(--green);
+            transform: translateY(-4px);
+        }
+
+        .service-card.featured {
+            border-color: var(--green);
+            background: linear-gradient(to bottom, rgba(0, 200, 83, 0.05), var(--grey-light));
+        }
+
+        .service-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--green);
+            border-radius: 14px 14px 0 0;
+        }
+
+        .service-popular {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--black);
+            background: var(--green);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+
+        .service-icon {
+            width: 48px; height: 48px;
+            background: var(--green-dim);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon svg {
+            width: 24px; height: 24px;
+            stroke: var(--green);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        .service-card .service-subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 24px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 28px;
+            flex: 1;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(51, 51, 51, 0.4);
+        }
+
+        .service-features li:last-child { border-bottom: none; }
+
+        .service-features li svg {
+            width: 16px; height: 16px;
+            stroke: var(--green);
+            fill: none;
+            stroke-width: 2;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .service-price {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--grey-border);
+        }
+
+        .service-price strong {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials {
+            padding: 100px 0;
+            position: relative;
+            background: var(--grey-light);
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--green), transparent);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1.1fr 0.9fr 1fr;
+            }
+        }
+
+        .testimonial-card {
+            background: var(--black);
+            border: 1px solid var(--grey-border);
+            border-radius: 14px;
+            padding: 28px;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(0, 200, 83, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-stars svg {
+            width: 16px; height: 16px;
+            fill: var(--green);
+        }
+
+        .testimonial-card blockquote {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: normal;
+        }
+
+        .testimonial-metric {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--green);
+            background: var(--green-dim);
+            padding: 5px 12px;
+            border-radius: 100px;
+            margin-bottom: 18px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 18px;
+            border-top: 1px solid var(--grey-border);
+        }
+
+        .testimonial-avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .testimonial-author-info h5 {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .testimonial-author-info span {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* ========== FINAL CTA ========== */
+        .final-cta {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--grey-border), transparent);
+        }
+
+        .final-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--green-dim) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta .section-title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            max-width: 700px;
+            margin: 0 auto 16px;
+        }
+
+        .final-cta .section-subtitle {
+            max-width: 500px;
+            margin: 0 auto 36px;
+        }
+
+        .cta-guarantee {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-tertiary);
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .cta-guarantee svg {
+            width: 14px; height: 14px;
+            stroke: var(--green);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--grey-border);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        .footer-content p {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            letter-spacing: 0.03em;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--green); }
+
+        /* ========== MOBILE NAV ========== */
+        .mobile-menu-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn { display: none; }
+        }
+
+        .mobile-menu-btn span {
+            width: 20px; height: 1.5px;
+            background: var(--white);
+            transition: all 0.3s;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(13, 13, 13, 0.97);
+            z-index: 99;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            overscroll-behavior: contain;
+        }
+
+        .mobile-nav.active { display: flex; }
+
+        .mobile-nav a {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .mobile-nav a:hover { color: var(--green); }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px; right: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        /* ========== SOCIAL PROOF BAR ========== */
+        .social-proof-bar {
+            padding: 40px 0;
+            border-top: 1px solid var(--grey-border);
+            border-bottom: 1px solid var(--grey-border);
+            position: relative;
+            z-index: 1;
+        }
+
+        .proof-bar-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .proof-bar-content {
+                flex-direction: row;
+                justify-content: center;
+                gap: 48px;
+            }
+        }
+
+        .proof-bar-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            white-space: nowrap;
+        }
+
+        .proof-bar-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .proof-item:hover { opacity: 1; }
+
+        .proof-item svg {
+            width: 20px; height: 20px;
+            fill: var(--text-tertiary);
+        }
+
+        /* ========== STICKY MOBILE CTA ========== */
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 90;
+            padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--grey-border);
+            transform: translateY(100%);
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+
+        .sticky-mobile-cta.visible {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 767px) {
+            .sticky-mobile-cta { display: block; }
+        }
+
+        .sticky-mobile-cta .btn-primary {
+            width: 100%;
+            justify-content: center;
+            padding: 14px;
+        }
+
+        /* ========== MID-PAGE CTA ========== */
+        .mid-cta {
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mid-cta-inner {
+            background: linear-gradient(135deg, rgba(0, 200, 83, 0.08), rgba(0, 200, 83, 0.02));
+            border: 1px solid rgba(0, 200, 83, 0.15);
+            border-radius: 16px;
+            padding: 40px 28px;
+        }
+
+        .mid-cta h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .mid-cta p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            max-width: 460px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========== COUNTER ANIMATION ========== */
+        .count-up { transition: none; }
+
+        /* ========== PROGRESS BARS ========== */
+        .progress-bar-container {
+            margin-top: 12px;
+        }
+
+        .progress-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .progress-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-tertiary);
+            min-width: 70px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .progress-track {
+            flex: 1;
+            height: 6px;
+            background: var(--grey);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--green);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 1.5s var(--ease-out-expo);
+        }
+
+        .progress-value {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--green);
+            min-width: 35px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Lueurs ambiantes -->
+    <div class="glow glow-1" aria-hidden="true"></div>
+    <div class="glow glow-2" aria-hidden="true"></div>
+    <div class="glow glow-3" aria-hidden="true"></div>
+
+    <!-- Grid background SVG -->
+    <svg class="grid-bg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+            <pattern id="grid-dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <circle cx="1" cy="1" r="1" fill="#444"/>
+            </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-dots)"/>
+    </svg>
+
+    <!-- Navigation -->
+    <nav id="nav" aria-label="Navigation principale">
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <span class="logo-dot"></span>
+                Thomas Lefèvre
+            </a>
+            <ul class="nav-links">
+                <li><a href="#methode">Méthode</a></li>
+                <li><a href="#resultats">Résultats</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#temoignages">Avis</a></li>
+                <li><a href="#audit" class="nav-cta">Audit gratuit</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Ouvrir le menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Menu de navigation">
+        <button class="mobile-nav-close" onclick="toggleMobileNav()" aria-label="Fermer le menu">&times;</button>
+        <a href="#methode" onclick="toggleMobileNav()">Méthode</a>
+        <a href="#resultats" onclick="toggleMobileNav()">Résultats</a>
+        <a href="#services" onclick="toggleMobileNav()">Services</a>
+        <a href="#temoignages" onclick="toggleMobileNav()">Avis</a>
+        <a href="#audit" onclick="toggleMobileNav()" style="color: var(--green);">Audit gratuit</a>
+    </div>
+
+    <main>
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero" aria-label="Présentation de Thomas Lefèvre, consultant SEO">
+        <div class="container hero-content">
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Consultant SEO — Paris
+                    </div>
+                    <h1>Montez sur Google.<br>Pour de bon.</h1>
+                    <p class="hero-text">
+                        Je fais remonter votre site sur les mots-clés que vos clients tapent vraiment.
+                        Résultat : plus de trafic qualifié, plus de leads -- et moins besoin de payer des pubs.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#audit" class="btn-primary">
+                            Recevoir mon audit gratuit
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="#resultats" class="btn-secondary">Voir les résultats</a>
+                    </div>
+                </div>
+                <div class="hero-metric-card">
+                    <div class="metric-header">
+                        <span class="metric-header-label">Performance moyenne</span>
+                        <span class="metric-live-badge">Live</span>
+                    </div>
+                    <div class="hero-big-number" data-count="312">+0%</div>
+                    <div class="hero-big-label">de trafic organique en moyenne</div>
+                    <svg class="mini-chart" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#00C853" stop-opacity="0.3"/>
+                                <stop offset="100%" stop-color="#00C853" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M0 70 Q30 65 60 60 Q100 50 140 42 Q180 34 200 30 Q240 22 280 16 Q320 11 360 8 Q380 6 400 3" stroke="#00C853" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <path d="M0 70 Q30 65 60 60 Q100 50 140 42 Q180 34 200 30 Q240 22 280 16 Q320 11 360 8 Q380 6 400 3 L400 80 L0 80Z" fill="url(#chartGrad)"/>
+                        <circle cx="400" cy="3" r="4" fill="#00C853"><animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/></circle>
+                    </svg>
+                    <div class="hero-mini-stats">
+                        <div class="mini-stat">
+                            <span class="mini-stat-value" data-count="87">0</span>
+                            <span class="mini-stat-label">Clients</span>
+                        </div>
+                        <div class="mini-stat">
+                            <span class="mini-stat-value" data-count="96" data-suffix="%">0%</span>
+                            <span class="mini-stat-label">Satisfaction</span>
+                        </div>
+                        <div class="mini-stat">
+                            <span class="mini-stat-value" data-count="8" data-suffix=" ans">0 ans</span>
+                            <span class="mini-stat-label">Expérience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOCIAL PROOF BAR ==================== -->
+    <section class="social-proof-bar">
+        <div class="container">
+            <div class="proof-bar-content">
+                <span class="proof-bar-label">Ils me font confiance</span>
+                <div class="proof-bar-items">
+                    <div class="proof-item">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="currentColor" opacity="0.3"/><path d="M7 12l3 3 7-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                        NovaSanté
+                    </div>
+                    <div class="proof-item">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor" opacity="0.3"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                        FinLeads
+                    </div>
+                    <div class="proof-item">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor" opacity="0.3"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                        AventureTrek
+                    </div>
+                    <div class="proof-item">
+                        <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,22 12,17 5,22 7,14 2,9 9,9" fill="currentColor" opacity="0.3"/></svg>
+                        StyleCraft
+                    </div>
+                    <div class="proof-item">
+                        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" fill="currentColor" opacity="0.3"/></svg>
+                        DataVerse
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROBLEM ==================== -->
+    <section class="problem" id="probleme">
+        <div class="container">
+            <div class="section-label reveal">// diagnostic</div>
+            <h2 class="section-title reveal reveal-delay-1">Page 2 de Google ?<br>Personne ne va là-bas.</h2>
+            <p class="section-subtitle reveal reveal-delay-2">
+                91,5% des clics restent sur la page 1 de Google. Concrètement, chaque jour où vous n'y êtes pas, ce sont vos concurrents qui récupèrent vos futurs clients.
+            </p>
+            <div class="problem-grid">
+                <div class="problem-card reveal reveal-delay-1">
+                    <div class="problem-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>L'algorithme bouge tout le temps.</h3>
+                    <p>Google fait des centaines de mises à jour par an. Vous étiez en page 1 mardi, en page 3 vendredi. Sans veille active, vous perdez des positions sans comprendre pourquoi.</p>
+                    <span class="problem-stat">~4 500 mises à jour / an</span>
+                </div>
+                <div class="problem-card reveal reveal-delay-2">
+                    <div class="problem-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Les autres avancent — vous non.</h3>
+                    <p>Pendant que vous hésitez, vos concurrents publient, optimisent, récupèrent vos positions. Plus vous attendez, plus le retard coûte cher à combler.</p>
+                    <span class="problem-stat">61% des entreprises priorisent le SEO</span>
+                </div>
+                <div class="problem-card reveal reveal-delay-3">
+                    <div class="problem-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>C'est technique — vraiment.</h3>
+                    <p>Core Web Vitals, crawl budget, données structurées, maillage interne... On n'improvise pas là-dessus. C'est souvent ce qui sépare la page 1 de la page 3.</p>
+                    <span class="problem-stat">68% des sites ont des erreurs critiques</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOLUTION ==================== -->
+    <section class="solution" id="methode">
+        <div class="container">
+            <div class="section-label reveal">// méthode</div>
+            <h2 class="section-title reveal reveal-delay-1">Ma méthode.<br>Rien de magique.</h2>
+            <p class="section-subtitle reveal reveal-delay-2">
+                Pas de formule miracle. Un process carré que j'ai rodé sur 87 projets. Voici comment ça se passe concrètement.
+            </p>
+            <div class="solution-layout">
+                <div class="solution-steps">
+                    <div class="solution-step reveal reveal-delay-1">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Audit technique</h3>
+                            <p>Je regarde tout : vitesse, architecture, indexation, balisage. Plus de 200 points passés en revue. À la fin, vous avez une liste claire — par ordre de priorité.</p>
+                        </div>
+                    </div>
+                    <div class="solution-step reveal reveal-delay-2">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Contenu qui ranke</h3>
+                            <p>J'analyse ce que vos clients tapent sur Google, j'organise les sujets, je pose un calendrier. Chaque page vise une requête réelle — pas du contenu pour faire joli.</p>
+                        </div>
+                    </div>
+                    <div class="solution-step reveal reveal-delay-3">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Des liens, les bons</h3>
+                            <p>Backlinks obtenus via des RP digitales et des partenariats. Pas de spam, pas de réseau bidon. Des liens qui tiennent dans le temps.</p>
+                        </div>
+                    </div>
+                    <div class="solution-step reveal reveal-delay-4">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>On suit, on ajuste</h3>
+                            <p>Un dashboard en temps réel, un reporting chaque mois. Vous voyez ce qui monte, ce qui stagne — et on corrige le tir ensemble.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-visual reveal reveal-delay-2">
+                    <div class="radar-chart-container">
+                        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" width="100%">
+                            <!-- Radar grid -->
+                            <polygon points="200,40 340,120 340,280 200,360 60,280 60,120" fill="none" stroke="#333" stroke-width="0.5" opacity="0.5"/>
+                            <polygon points="200,80 310,140 310,260 200,320 90,260 90,140" fill="none" stroke="#333" stroke-width="0.5" opacity="0.4"/>
+                            <polygon points="200,120 280,160 280,240 200,280 120,240 120,160" fill="none" stroke="#333" stroke-width="0.5" opacity="0.3"/>
+                            <polygon points="200,160 250,180 250,220 200,240 150,220 150,180" fill="none" stroke="#333" stroke-width="0.5" opacity="0.2"/>
+                            <!-- Axis lines -->
+                            <line x1="200" y1="40" x2="200" y2="360" stroke="#333" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="60" y1="120" x2="340" y2="280" stroke="#333" stroke-width="0.5" opacity="0.3"/>
+                            <line x1="340" y1="120" x2="60" y2="280" stroke="#333" stroke-width="0.5" opacity="0.3"/>
+                            <!-- Before polygon -->
+                            <polygon points="200,140 260,170 270,250 200,290 130,240 140,170" fill="rgba(255,77,77,0.08)" stroke="#ff4d4d" stroke-width="1" opacity="0.5" stroke-dasharray="4,4"/>
+                            <!-- After polygon -->
+                            <polygon class="radar-fill" points="200,60 330,130 320,270 200,340 80,265 75,130" fill="rgba(0,200,83,0.1)" stroke="#00C853" stroke-width="1.5" opacity="0">
+                                <animate attributeName="opacity" from="0" to="1" dur="1.5s" begin="0.5s" fill="freeze"/>
+                            </polygon>
+                            <!-- Data points -->
+                            <circle cx="200" cy="60" r="4" fill="#00C853" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.8s" fill="freeze"/></circle>
+                            <circle cx="330" cy="130" r="4" fill="#00C853" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.9s" fill="freeze"/></circle>
+                            <circle cx="320" cy="270" r="4" fill="#00C853" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.0s" fill="freeze"/></circle>
+                            <circle cx="200" cy="340" r="4" fill="#00C853" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.1s" fill="freeze"/></circle>
+                            <circle cx="80" cy="265" r="4" fill="#00C853" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.2s" fill="freeze"/></circle>
+                            <circle cx="75" cy="130" r="4" fill="#00C853" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.3s" fill="freeze"/></circle>
+                            <!-- Labels -->
+                            <text x="200" y="28" text-anchor="middle" fill="#999" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="0.05em">TECHNIQUE</text>
+                            <text x="355" y="120" text-anchor="start" fill="#999" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="0.05em">CONTENU</text>
+                            <text x="355" y="285" text-anchor="start" fill="#999" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="0.05em">BACKLINKS</text>
+                            <text x="200" y="382" text-anchor="middle" fill="#999" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="0.05em">UX</text>
+                            <text x="45" y="285" text-anchor="end" fill="#999" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="0.05em">VITESSE</text>
+                            <text x="45" y="120" text-anchor="end" fill="#999" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="0.05em">MAILLAGE</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RESULTS ==================== -->
+    <section class="results" id="resultats" aria-label="Résultats clients">
+        <div class="container">
+            <div class="section-label reveal">// résultats</div>
+            <h2 class="section-title reveal reveal-delay-1">Des chiffres.<br>Pas du discours.</h2>
+            <p class="section-subtitle reveal reveal-delay-2">
+                Positions gagnées, trafic généré, conversions obtenues. Voici ce que mes clients mesurent.
+            </p>
+            <div class="results-grid">
+                <!-- Result 1 -->
+                <div class="result-card reveal reveal-delay-1">
+                    <div class="result-card-header">
+                        <div class="result-client">
+                            <div class="result-avatar" style="background: var(--green-dim); color: var(--green);">NV</div>
+                            <div class="result-client-info">
+                                <h4>NovaSanté</h4>
+                                <span>E-commerce Bien-être</span>
+                            </div>
+                        </div>
+                        <span class="result-duration">6 mois</span>
+                    </div>
+                    <div class="result-metrics">
+                        <div class="result-metric">
+                            <span class="result-metric-value">+428%</span>
+                            <span class="result-metric-label">Trafic</span>
+                        </div>
+                        <div class="result-metric">
+                            <span class="result-metric-value">+89</span>
+                            <span class="result-metric-label">Mots-clés Top 3</span>
+                        </div>
+                        <div class="result-metric">
+                            <span class="result-metric-value">+215%</span>
+                            <span class="result-metric-label">Conversions</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Technique</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="95"></div></div>
+                            <span class="progress-value">95%</span>
+                        </div>
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Contenu</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="88"></div></div>
+                            <span class="progress-value">88%</span>
+                        </div>
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Autorité</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="76"></div></div>
+                            <span class="progress-value">76%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result 2 -->
+                <div class="result-card reveal reveal-delay-2">
+                    <div class="result-card-header">
+                        <div class="result-client">
+                            <div class="result-avatar" style="background: rgba(99, 102, 241, 0.15); color: #818cf8;">FL</div>
+                            <div class="result-client-info">
+                                <h4>FinLeads</h4>
+                                <span>Cabinet Conseil Finance</span>
+                            </div>
+                        </div>
+                        <span class="result-duration">8 mois</span>
+                    </div>
+                    <div class="result-metrics">
+                        <div class="result-metric">
+                            <span class="result-metric-value">+312%</span>
+                            <span class="result-metric-label">Trafic</span>
+                        </div>
+                        <div class="result-metric">
+                            <span class="result-metric-value">+67</span>
+                            <span class="result-metric-label">Mots-clés Top 3</span>
+                        </div>
+                        <div class="result-metric">
+                            <span class="result-metric-value">+178%</span>
+                            <span class="result-metric-label">Leads</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Technique</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="92"></div></div>
+                            <span class="progress-value">92%</span>
+                        </div>
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Contenu</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="94"></div></div>
+                            <span class="progress-value">94%</span>
+                        </div>
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Autorité</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="82"></div></div>
+                            <span class="progress-value">82%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result 3 -->
+                <div class="result-card reveal reveal-delay-3">
+                    <div class="result-card-header">
+                        <div class="result-client">
+                            <div class="result-avatar" style="background: rgba(251, 191, 36, 0.15); color: #fbbf24;">AT</div>
+                            <div class="result-client-info">
+                                <h4>AventureTrek</h4>
+                                <span>Agence Voyage Outdoor</span>
+                            </div>
+                        </div>
+                        <span class="result-duration">5 mois</span>
+                    </div>
+                    <div class="result-metrics">
+                        <div class="result-metric">
+                            <span class="result-metric-value">+267%</span>
+                            <span class="result-metric-label">Trafic</span>
+                        </div>
+                        <div class="result-metric">
+                            <span class="result-metric-value">+53</span>
+                            <span class="result-metric-label">Mots-clés Top 3</span>
+                        </div>
+                        <div class="result-metric">
+                            <span class="result-metric-value">+142%</span>
+                            <span class="result-metric-label">Réservations</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Technique</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="90"></div></div>
+                            <span class="progress-value">90%</span>
+                        </div>
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Contenu</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="85"></div></div>
+                            <span class="progress-value">85%</span>
+                        </div>
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Autorité</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="71"></div></div>
+                            <span class="progress-value">71%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result 4 -->
+                <div class="result-card reveal reveal-delay-4">
+                    <div class="result-card-header">
+                        <div class="result-client">
+                            <div class="result-avatar" style="background: rgba(236, 72, 153, 0.15); color: #ec4899;">SC</div>
+                            <div class="result-client-info">
+                                <h4>StyleCraft</h4>
+                                <span>Studio Design Intérieur</span>
+                            </div>
+                        </div>
+                        <span class="result-duration">7 mois</span>
+                    </div>
+                    <div class="result-metrics">
+                        <div class="result-metric">
+                            <span class="result-metric-value">+341%</span>
+                            <span class="result-metric-label">Trafic</span>
+                        </div>
+                        <div class="result-metric">
+                            <span class="result-metric-value">+72</span>
+                            <span class="result-metric-label">Mots-clés Top 3</span>
+                        </div>
+                        <div class="result-metric">
+                            <span class="result-metric-value">+196%</span>
+                            <span class="result-metric-label">Demandes</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Technique</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="97"></div></div>
+                            <span class="progress-value">97%</span>
+                        </div>
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Contenu</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="91"></div></div>
+                            <span class="progress-value">91%</span>
+                        </div>
+                        <div class="progress-bar-row">
+                            <span class="progress-label">Autorité</span>
+                            <div class="progress-track"><div class="progress-fill" data-width="86"></div></div>
+                            <span class="progress-value">86%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== MID-PAGE CTA ==================== -->
+    <section class="mid-cta">
+        <div class="container">
+            <div class="mid-cta-inner reveal">
+                <h2 style="font-size: clamp(1.3rem, 3vw, 1.8rem);">Vous aussi, mesurez la différence.</h2>
+                <p>Recevez un diagnostic complet de votre site avec les actions prioritaires pour gagner en visibilité.</p>
+                <a href="#audit" class="btn-primary">
+                    Obtenir mon audit gratuit
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-label reveal">// services</div>
+            <h2 class="section-title reveal reveal-delay-1">Trois façons de bosser<br>ensemble.</h2>
+            <p class="section-subtitle reveal reveal-delay-2">
+                Un diagnostic ponctuel, un accompagnement continu ou une formation pour votre équipe. Vous choisissez.
+            </p>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Audit SEO</h3>
+                    <div class="service-subtitle">Ponctuel — 1 semaine</div>
+                    <p>Vous repartez avec un diagnostic clair et un plan d'action trié par impact. Vous savez quoi faire — et par où commencer.</p>
+                    <ul class="service-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Analyse de 200+ facteurs techniques
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Recherche de mots-clés stratégiques
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Analyse concurrentielle
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Rapport PDF + call de restitution
+                        </li>
+                    </ul>
+                    <div class="service-price">
+                        À partir de <strong>990€</strong>
+                    </div>
+                </div>
+
+                <!-- Service 2 (featured) -->
+                <div class="service-card featured reveal reveal-delay-2">
+                    <span class="service-popular">Populaire</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Accompagnement mensuel</h3>
+                    <div class="service-subtitle">Récurrent — Engagement 6 mois</div>
+                    <p>Je m'occupe du SEO au quotidien — stratégie, exécution, ajustements. Votre équipe n'a rien à gérer, les résultats arrivent.</p>
+                    <ul class="service-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Tout l'audit SEO inclus
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Optimisations techniques mensuelles
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Stratégie de contenu + briefings
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Campagne netlinking incluse
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Dashboard + reporting mensuel
+                        </li>
+                    </ul>
+                    <div class="service-price">
+                        À partir de <strong>1 800€</strong>/mois
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card reveal reveal-delay-3">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Formation SEO</h3>
+                    <div class="service-subtitle">Ponctuel — 2 jours</div>
+                    <p>Vos rédacteurs apprennent à écrire pour Google — sur votre site, avec vos sujets. Du concret, pas un cours magistral.</p>
+                    <ul class="service-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Programme adapté à votre niveau
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Exercices pratiques sur votre site
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            Templates et checklists offerts
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            30 jours de support post-formation
+                        </li>
+                    </ul>
+                    <div class="service-price">
+                        À partir de <strong>2 500€</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="testimonials" id="temoignages">
+        <div class="container">
+            <div class="section-label reveal">// témoignages</div>
+            <h2 class="section-title reveal reveal-delay-1">Leurs mots.<br>Leurs chiffres.</h2>
+            <p class="section-subtitle reveal reveal-delay-2">
+                Des résultats mesurés par mes clients, pas des avis copiés-collés.
+            </p>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                    </div>
+                    <blockquote>
+                        "On était page 4, je n'y croyais plus trop. Six mois après, top 3 sur nos mots-clés. Le plus fou c'est que les leads ont suivi — pas juste du trafic, des vrais prospects."
+                    </blockquote>
+                    <div class="testimonial-metric">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        +428% de trafic organique
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: var(--green-dim); color: var(--green);">ML</div>
+                        <div class="testimonial-author-info">
+                            <h5>Marie Laurent</h5>
+                            <span>CEO — NovaSanté</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                    </div>
+                    <blockquote>
+                        "4 000€ par mois en Ads, ça faisait mal. Thomas a bossé le SEO pendant 4 mois, on est passé à 1 500€ de budget pub. Le reste vient du trafic naturel. J'aurais dû appeler avant."
+                    </blockquote>
+                    <div class="testimonial-metric">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        -62% coût acquisition
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: rgba(99, 102, 241, 0.15); color: #818cf8;">PD</div>
+                        <div class="testimonial-author-info">
+                            <h5>Pierre Dubois</h5>
+                            <span>Directeur Marketing — FinLeads</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card reveal reveal-delay-3">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84L18 6.71l-4 3.9.94 5.5L10 13.38 5.06 16.1 6 10.6 2 6.7l5.61-.86L10 1z"/></svg>
+                    </div>
+                    <blockquote>
+                        "Nos rédacteurs écrivaient à l'instinct. Après la formation de Thomas, ils pensent SEO dès la première ligne. En 3 mois, 89 pages dans le top 10. On n'achète plus de visibilité, on la gagne."
+                    </blockquote>
+                    <div class="testimonial-metric">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        +89 pages en top 10
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar" style="background: rgba(251, 191, 36, 0.15); color: #fbbf24;">SC</div>
+                        <div class="testimonial-author-info">
+                            <h5>Sophie Chen</h5>
+                            <span>Fondatrice — AventureTrek</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA ==================== -->
+    <section class="final-cta" id="audit" aria-label="Demander un audit SEO gratuit">
+        <div class="container cta-content">
+            <div class="section-label reveal">// prochaine étape</div>
+            <h2 class="section-title reveal reveal-delay-1">Votre audit,<br>sous 48h.</h2>
+            <p class="section-subtitle reveal reveal-delay-2" style="margin: 0 auto 36px;">
+                Où vous en êtes, ce que vous perdez, ce que vous pouvez gagner. Un plan d'action clair, sans engagement.
+            </p>
+            <div class="reveal reveal-delay-3">
+                <a href="mailto:contact@thomas-lefevre-seo.fr?subject=Demande%20d%27audit%20SEO%20gratuit" class="btn-primary" style="font-size: 0.85rem; padding: 16px 36px;">
+                    Demander mon audit gratuit
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+            <div class="cta-guarantee reveal reveal-delay-4">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Audit gratuit -- Aucun engagement -- Réponse garantie sous 48h
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Thomas Lefèvre — Consultant SEO</p>
+            <div class="footer-links">
+                <a href="/mentions-legales">Mentions légales</a>
+                <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-mobile-cta" id="stickyCta">
+        <a href="#audit" class="btn-primary">
+            Audit SEO gratuit
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </div>
+
+    <script>
+        // ========== NAV SCROLL ==========
+        const nav = document.getElementById('nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        }, { passive: true });
+
+        // ========== STICKY MOBILE CTA ==========
+        const stickyCta = document.getElementById('stickyCta');
+        const heroSection = document.getElementById('hero');
+        const footerEl = document.querySelector('footer');
+
+        window.addEventListener('scroll', () => {
+            const heroBottom = heroSection.getBoundingClientRect().bottom;
+            const footerTop = footerEl.getBoundingClientRect().top;
+            if (heroBottom < 0 && footerTop > window.innerHeight) {
+                stickyCta.classList.add('visible');
+            } else {
+                stickyCta.classList.remove('visible');
+            }
+        }, { passive: true });
+
+        // ========== MOBILE NAV ==========
+        function toggleMobileNav() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+
+        // ========== SCROLL REVEAL ==========
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -60px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // Animate progress bars
+                    const bars = entry.target.querySelectorAll('.progress-fill');
+                    bars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width + '%';
+                    });
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .section-label').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ========== COUNT-UP ANIMATION ==========
+        function animateCount(el, target, suffix = '', prefix = '+') {
+            const duration = 2000;
+            const start = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Ease out expo
+                const eased = 1 - Math.pow(2, -10 * progress);
+                const current = Math.round(eased * target);
+
+                el.textContent = prefix + current + suffix;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Hero big number
+        const heroNumber = document.querySelector('.hero-big-number');
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCount(heroNumber, 312, '%', '+');
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        heroObserver.observe(heroNumber);
+
+        // Mini stats
+        document.querySelectorAll('.mini-stat-value').forEach(el => {
+            const target = parseInt(el.getAttribute('data-count'));
+            const suffix = el.getAttribute('data-suffix') || '';
+
+            const statObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCount(el, target, suffix, '');
+                        statObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            statObserver.observe(el);
+        });
+
+        // ========== SMOOTH SCROLL ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
